@@ -1,5 +1,5 @@
-# sqlzoo-solutions
-Solutions to [SQLZOO Tutorials](https://sqlzoo.net) posted May 2020.
+# SQLZOO Solutions
+Practice SQL exercises. Solutions to [SQLZOO Tutorials](https://sqlzoo.net) posted May 2020.
 
 ## Sections
 * 0 SELECT basics
@@ -20,7 +20,7 @@ Solutions to [SQLZOO Tutorials](https://sqlzoo.net) posted May 2020.
 * 12 Tutorial DDL
 
 ## SELECT basics
-
+![](world_table.png)
 1. Show the population of Germany.
 ```sql
 SELECT population 
