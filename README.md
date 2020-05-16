@@ -403,7 +403,7 @@ FROM world AS x
 WHERE population > ALL(SELECT population*3 
                        FROM world AS y 
                        WHERE y.continent = x.continent 
-                       AND y.name != x.name);
+                       AND y.name <> x.name);
 ```
 
 ## [5 SUM and COUNT](https://sqlzoo.net/wiki/SUM_and_COUNT)
