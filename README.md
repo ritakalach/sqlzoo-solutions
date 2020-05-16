@@ -5,19 +5,19 @@ Practice SQL exercises. Solutions to [SQLZOO Tutorials](https://sqlzoo.net) post
 * [0 SELECT basics](#0-select-basics)
 * [1 SELECT name](#1-select-name)
 * [2 SELECT from World](#2-select-from-world)
-* 3 SELECT from Nobel
-* 4 SELECT within SELECT
-* 5 SUM and COUNT
-* 6 JOIN
-* 7 More JOIN operations
-* 8 Using Null
-* 8+ Numeric Examples
-* 9- Window function
-* 9+ COVID 19 😷
-* 9 Self join
-* 10 Tutorial Quizzes
-* 11 Tutorial Student Records
-* 12 Tutorial DDL
+* [3 SELECT from Nobel](#3-select-from-nobel)
+* [4 SELECT within SELECT](#4-select-within-select)
+* [5 SUM and COUNT](#5-sum-and-count)
+* [6 JOIN](#6-join)
+* [7 More JOIN operations](#7-more-join-operations)
+* [8 Using Null](#8-using-null)
+* [8+ Numeric Examples](#8+-numeric-examples)
+* [9- Window function](#9--window-function)
+* [9+ COVID 19 😷](#9+-covid-19)
+* [9 Self join](#9-self-join)
+* [10 Tutorial Quizzes](#10-tutorial-quizzes)
+* [11 Tutorial Student Records](#11-tutorial-student-records)
+* [12 Tutorial DDL](#12-tutorial-ddl)
 
 ## [0 SELECT basics](https://sqlzoo.net/wiki/SELECT_basics)
 <img src="world_table.png" height = 200>
@@ -40,7 +40,7 @@ SELECT name, area
 FROM world
 WHERE area BETWEEN 200000 AND 250000;
 ```
-## 1 SELECT name
+## [1 SELECT name](https://sqlzoo.net/wiki/SELECT_names)
 1. Find the country that start with "Y".
 ```sql
 SELECT name
@@ -131,7 +131,7 @@ SELECT name, REPLACE(capital, name, '')
 FROM world
 WHERE capital LIKE CONCAT(name,'_%');
 ```
-## 2 SELECT from World
+## [2 SELECT from World](https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial)
 1. Show the name, continent and population of all countries.
 ```sql
 SELECT name, continent, population 
@@ -216,3 +216,17 @@ AND name LIKE '%o%'
 AND name LIKE '%u%'
 AND name NOT LIKE '% %';
 ```
+
+## [3 SELECT from Nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial)
+## [4 SELECT within SELECT](https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial)
+## [5 SUM and COUNT](https://sqlzoo.net/wiki/SUM_and_COUNT)
+## [6 JOIN](https://sqlzoo.net/wiki/The_JOIN_operation)
+## [7 More JOIN operations](https://sqlzoo.net/wiki/More_JOIN_operations)
+## [8 Using Null](https://sqlzoo.net/wiki/Using_Null)
+## [8+ Numeric Examples](https://sqlzoo.net/wiki/NSS_Tutorial)
+## [9- Window function](https://sqlzoo.net/wiki/Window_functions)
+## [9+ COVID 19 😷](https://sqlzoo.net/wiki/Window_LAG)
+## [9 Self join](https://sqlzoo.net/wiki/Self_join)
+## [10 Tutorial Quizzes](https://sqlzoo.net/wiki/Tutorial_Quizzes)
+## [11 Tutorial Student Records](https://sqlzoo.net/wiki/DDL_Student_Records)
+## [12 Tutorial DDL](https://sqlzoo.net/wiki/DDL_General_Election)
