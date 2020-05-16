@@ -12,7 +12,7 @@ Practice SQL exercises. Solutions to [SQLZOO Tutorials](https://sqlzoo.net) post
 * [7 More JOIN operations](#7-more-join-operations)
 * [8 Using Null](#8-using-null)
 * [8+ Numeric Examples](#8-numeric-examples)
-* [9- Window function](#9-window-function)
+* [9- Window function](#9--window-function)
 * [9+ COVID 19](#9-covid-19)
 * [9 Self join](#9-self-join)
 * [10 Tutorial Quizzes](#10-tutorial-quizzes)
