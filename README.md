@@ -219,6 +219,7 @@ AND name NOT LIKE '% %';
 
 ## [3 SELECT from Nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial)
 <img src="nobel_table.png" height = 200>
+
 1. Display Nobel prizes for 1950.
 ```sql
 SELECT yr, subject, winner
