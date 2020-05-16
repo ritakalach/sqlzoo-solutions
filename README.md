@@ -1,5 +1,5 @@
 # SQLZOO Solutions
-Practice SQL exercises. Solutions to [SQLZOO Tutorials](https://sqlzoo.net) posted May 2020.
+Solutions to [SQLZOO Tutorials](https://sqlzoo.net) posted May 2020.
 
 ## Sections
 * [0 SELECT basics](#0-select-basics)
