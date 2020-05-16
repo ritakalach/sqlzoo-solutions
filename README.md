@@ -2,8 +2,8 @@
 Practice SQL exercises. Solutions to [SQLZOO Tutorials](https://sqlzoo.net) posted May 2020.
 
 ## Sections
-* 0 SELECT basics
-* 1 SELECT name
+* [0 SELECT basics](#0-select-basics)
+* [1 SELECT name](#1-select-name)
 * 2 SELECT from World
 * 3 SELECT from Nobel
 * 4 SELECT within SELECT
@@ -19,7 +19,7 @@ Practice SQL exercises. Solutions to [SQLZOO Tutorials](https://sqlzoo.net) post
 * 11 Tutorial Student Records
 * 12 Tutorial DDL
 
-## SELECT basics
+## 0 SELECT basics
 <img src="world_table.png" height = 200>
 
 1. Show the population of Germany.
@@ -40,5 +40,5 @@ SELECT name, area
 FROM world
 WHERE area BETWEEN 200000 AND 250000;
 ```
-## SELECT name
+## 1 SELECT name
 
