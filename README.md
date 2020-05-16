@@ -218,7 +218,148 @@ AND name NOT LIKE '% %';
 ```
 
 ## [3 SELECT from Nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial)
+<img src="nobel_table.png" height = 200>
+1. Display Nobel prizes for 1950.
+```sql
+SELECT yr, subject, winner
+FROM nobel
+WHERE yr = 1950;
+```
+2. Show who won the 1962 prize for Literature.
+```sql
+SELECT winner
+FROM nobel
+WHERE yr = 1962
+AND subject = 'Literature';
+```
+3. Show the year and subject that won Albert Einstein his prize.
+```sql
+SELECT yr, subject
+FROM nobel
+WHERE winner = 'Albert Einstein';
+```
+4. Give the name of the Peace winners since the year 2000, including 2000.
+```sql
+SELECT winner
+FROM nobel
+WHERE subject = 'Peace'
+AND yr >= 2000;
+```
+5. Show all details (yr, subject, winner) of the Literature prize winners for 1980 to 1989 inclusive.
+```sql
+SELECT *
+FROM nobel
+WHERE subject = 'Literature'
+AND yr BETWEEN 1980 AND 1989;
+```
+6. Show all details of the presidential winners: Theodore Roosevelt, Woodrow Wilson, Jimmy Carter, Barack Obama.
+```sql
+SELECT * 
+FROM nobel
+WHERE winner IN ('Theodore Roosevelt', 'Woodrow Wilson', 'Jimmy Carter', 'Barack Obama');
+```
+7. Show the winners with first name John.
+```sql
+SELECT winner
+FROM nobel
+WHERE winner LIKE 'John %';
+```
+8. Show the year, subject, and name of Physics winners for 1980 together with the Chemistry winners for 1984.
+```sql
+SELECT *
+FROM nobel
+WHERE (subject = 'Physics' AND yr = 1980)
+OR (subject = 'Chemistry' AND yr = 1984);
+```
+9. Show the year, subject, and name of winners for 1980 excluding Chemistry and Medicine.
+```sql
+SELECT *
+FROM nobel
+WHERE yr = 1980 
+AND subject NOT IN ('Chemistry', 'Medicine');
+```
+10. Show year, subject, and name of people who won a Medicine prize before 1910 (not including 1910) together with winners of a Literature prize after 2004 (including 2004).
+```sql
+SELECT *
+FROM nobel
+WHERE (subject = 'Medicine' AND yr < 1910)
+OR (subject = 'Literature' AND yr >= 2004);
+```
+11. Find all details of the prize won by Peter Grünberg.
+```sql
+SELECT *
+FROM nobel
+WHERE winner = 'Peter Grünberg';
+```
+12. Find all details of the prize won by Eugene O'Neill.
+```sql
+SELECT *
+FROM nobel
+WHERE winner = 'Eugene O''Neill';
+```
+13. List the winners, year and subject where the winner starts with Sir. Show the the most recent first, then by name order.
+```sql
+SELECT winner, yr, subject
+FROM nobel
+WHERE winner LIKE 'Sir %'
+ORDER BY yr DESC, winner;
+```
+14. Show the 1984 winners and subject ordered by subject and winner name; but list Chemistry and Physics last.
+```sql
+SELECT winner, subject
+FROM nobel
+WHERE yr = 1984
+ORDER BY 
+CASE WHEN subject IN ('Physics', 'Chemistry') THEN 1 ELSE 0 END, 
+subject, winner;
+```
+
 ## [4 SELECT within SELECT](https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial)
+1. List each country name where the population is larger than that of Russia.
+```sql
+SELECT name 
+FROM world
+WHERE population > (SELECT population 
+                    FROM world
+                    WHERE name = 'Russia')
+```
+2. Show the countries in Europe with a per capita GDP greater than United Kingdom's.
+```sql
+
+```
+3. List the name and continent of countries in the continents containing either Argentina or Australia. Order by name of the country.
+```sql
+
+```
+4. Which country has a population that is more than Canada but less than Poland? Show the name and the population.
+```sql
+
+```
+5. Show the name and the population of each country in Europe. Show the population as a percentage of the population of Germany.
+```sql
+
+```
+6. Which countries have a GDP greater than every country in Europe? 
+```sql
+
+```
+7. Find the largest country (by area) in each continent, show the continent, the name and the area.
+```sql
+
+```
+8. List each continent and the name of the country that comes first alphabetically.
+```sql
+
+```
+9. Find the continents where all countries have a population <= 25000000. Then find the names of the countries associated with these continents. Show name, continent and population.
+```sql
+
+```
+10. Some countries have populations more than three times that of any of their neighbours (in the same continent). Give the countries and continents.
+```sql
+
+```
+
 ## [5 SUM and COUNT](https://sqlzoo.net/wiki/SUM_and_COUNT)
 ## [6 JOIN](https://sqlzoo.net/wiki/The_JOIN_operation)
 ## [7 More JOIN operations](https://sqlzoo.net/wiki/More_JOIN_operations)
