@@ -19,7 +19,7 @@ Practice SQL exercises. Solutions to [SQLZOO Tutorials](https://sqlzoo.net) post
 * 11 Tutorial Student Records
 * 12 Tutorial DDL
 
-## 0 SELECT basics
+## [0 SELECT basics](https://sqlzoo.net/wiki/SELECT_basics)
 <img src="world_table.png" height = 200>
 
 1. Show the population of Germany.
