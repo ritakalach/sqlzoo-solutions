@@ -387,7 +387,7 @@ WHERE name IN (SELECT MIN(name)
                FROM world 
                GROUP BY continent);
 ```
-9. Find the continents where all countries have a population <= 25000000. Then find the names of the countries associated with these continents. Show name, continent and population.
+9. Find the continents where all countries have a population <= 25,000,000. Then find the names of the countries associated with these continents. Show name, continent and population.
 ```sql
 SELECT name, continent, population
 FROM world AS x
@@ -407,9 +407,197 @@ WHERE population > ALL(SELECT population*3
 ```
 
 ## [5 SUM and COUNT](https://sqlzoo.net/wiki/SUM_and_COUNT)
+1. Show the total population of the world.
+```sql
+
+```
+2. List all the continents.
+```sql
+
+```
+3. Show the total GDP of Africa.
+```sql
+
+```
+4. How many countries have an area of at least 1,000,000?
+```sql
+
+```
+5. What is the total population of Estonia, Latvia, and Lithuania?
+```sql
+
+```
+6. For each continent show the continent and number of countries.
+```sql
+
+```
+7. For each continent show the continent and number of countries with populations of at least 10 million.
+```sql
+
+```
+8. List the continents that have a total population of at least 100 million.
+```sql
+
+```
+
 ## [6 JOIN](https://sqlzoo.net/wiki/The_JOIN_operation)
+1. Show the matchid and player name for all goals scored by Germany. To identify German players, check for: teamid = "GER".
+```sql
+
+```
+2. Show id, stadium, team1, team2 for game 1012.
+```sql
+
+```
+3. Show the player, teamid, stadium and mdate for every German goal.
+```sql
+
+```
+4. Show the team1, team2 and player for every goal scored by player called Mario.
+```sql
+
+```
+5. Show player, teamid, coach, gtime for all goals scored in the first 10 minutes (gtime <= 10).
+```sql
+
+```
+6. List the dates of the matches and the name of the team in which Fernando Santos was the team1 coach.
+```sql
+
+```
+7. List the player for every goal scored in a game where the stadium was 'National Stadium, Warsaw'.
+```sql
+
+```
+8. Show the name of all players who scored a goal against Germany.
+```sql
+
+```
+9. Show teamname and the total number of goals scored.
+```sql
+
+```
+10. Show the stadium and the number of goals scored in each stadium.
+```sql
+
+```
+11. For every match involving "POL", show the matchid, date and the number of goals scored.
+```sql
+
+```
+12. For every match where "GER" scored, show matchid, match date and the number of goals scored by "GER".
+```sql
+
+```
+13. List every match with the goals scored by each team as shown.
+```sql
+
+```
+
 ## [7 More JOIN operations](https://sqlzoo.net/wiki/More_JOIN_operations)
+1. List the films where the yr is 1962. Show id and title.
+```sql
+
+```
+2. When was Citizen Kane released?
+```sql
+
+```
+3. List all of the Star Trek movies, include the id, title and yr (all of these movies include the words Star Trek in the title). Order results by year.
+```sql
+
+```
+4. What's the id for actor Glenn Close?
+```sql
+
+```
+5. What's the id of the film Casablanca?
+```sql
+
+```
+6. Obtain the cast list for Casablanca.
+```sql
+
+```
+7. Obtain the cast list for the film Alien.
+```sql
+
+```
+8. List the films in which Harrison Ford has appeared.
+```sql
+
+```
+9. List the films in which Harrison Ford has appeared but not in the starring role. (The ord field indicates the position of the actor. If ord = 1 then the actor is in the starring role.)
+```sql
+
+```
+10. List the films together with the leading star for all 1962 films.
+```sql
+
+```
+11. Which were the busiest years for Rock Hudson? Show the year and the number of movies he made each year for any year in which he made more than two movies.
+```sql
+
+```
+12. List the film title and the leading actor for all of the films Julie Andrews played in.
+```sql
+
+```
+13. Obtain a list, in alphabetical order, of actors who've had at least 15 starring roles.
+```sql
+
+```
+14. List the films released in the year 1978 ordered by the number of actors in the cast, then by title.
+```sql
+
+```
+15. List all the people who have worked with Art Garfunkel.
+```sql
+
+```
+
 ## [8 Using Null](https://sqlzoo.net/wiki/Using_Null)
+1. List the teachers who have NULL for their department.
+```sql
+
+```
+2. Note the INNER JOIN misses the teachers with no department and the departments with no teacher.
+```sql
+
+```
+3. Use a different JOIN so that all teachers are listed.
+```sql
+
+```
+4. Use a different JOIN so that all departments are listed.
+```sql
+
+```
+5. Use COALESCE to print the mobile number. Use the number "07986 444 2266" if there is no number given. Show teacher name and mobile number.
+```sql
+
+```
+6. Use the COALESCE function and a LEFT JOIN to print the teacher name and department name. Use the string "None" where there is no department.
+```sql
+
+```
+7. Use COUNT to show the number of teachers and the number of mobile phones.
+```sql
+
+```
+8. Use COUNT and GROUP BY dept.name to show each department and the number of staff. Use a RIGHT JOIN to ensure that the Engineering department is listed.
+```sql
+
+```
+9. Use CASE to show the name of each teacher followed by "Sci" if the teacher is in dept 1 or 2 and "Art" otherwise.
+```sql
+
+```
+10. Use CASE to show the name of each teacher followed by "Sci" if the teacher is in dept 1 or 2, show "Art" if the teacher's dept is 3 and "None" otherwise.
+```sql
+
+```
+
 ## [8+ Numeric Examples](https://sqlzoo.net/wiki/NSS_Tutorial)
 ## [9- Window function](https://sqlzoo.net/wiki/Window_functions)
 ## [9+ COVID 19](https://sqlzoo.net/wiki/Window_LAG)
