@@ -4,15 +4,15 @@ Solutions to [SQLZOO Tutorials](https://sqlzoo.net) posted May 2020.
 ## Sections
 * [0 SELECT basics](#0-select-basics)
 * [1 SELECT name](#1-select-name)
-* [2 SELECT from World](#2-select-from-world)
-* [3 SELECT from Nobel](#3-select-from-nobel)
+* [2 SELECT from world](#2-select-from-world)
+* [3 SELECT from nobel](#3-select-from-nobel)
 * [4 SELECT within SELECT](#4-select-within-select)
 * [5 SUM and COUNT](#5-sum-and-count)
 * [6 JOIN](#6-join)
-* [7 More JOIN operations](#7-more-join-operations)
-* [8 Using Null](#8-using-null)
+* [7 More JOIN](#7-more-join)
+* [8 Using NULL](#8-using-null)
 * [9 Window function](#9-window-function)
-* [10 Self join](#10-self-join)
+* [10 Self JOIN](#10-self-join)
 
 ## [0 SELECT basics](https://sqlzoo.net/wiki/SELECT_basics)
 <img src="world_table.png" height = 200>
@@ -126,7 +126,7 @@ SELECT name, REPLACE(capital, name, '')
 FROM world
 WHERE capital LIKE CONCAT(name,'_%');
 ```
-## [2 SELECT from World](https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial)
+## [2 SELECT from world](https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial)
 1. Show the name, continent and population of all countries.
 ```sql
 SELECT name, continent, population 
@@ -212,7 +212,7 @@ AND name LIKE '%u%'
 AND name NOT LIKE '% %';
 ```
 
-## [3 SELECT from Nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial)
+## [3 SELECT from nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial)
 <img src="nobel_table.png" height = 200>
 
 1. Display Nobel prizes for 1950.
@@ -547,7 +547,7 @@ LEFT JOIN goal ON game.id = goal.matchid
 GROUP BY mdate, matchid, team1, team2;
 ```
 
-## [7 More JOIN operations](https://sqlzoo.net/wiki/More_JOIN_operations)
+## [7 More JOIN](https://sqlzoo.net/wiki/More_JOIN_operations)
 <img src="movie_table.png" height = 50>
 
 1. List the films where the yr is 1962. Show id and title.
@@ -677,8 +677,8 @@ AND movieid IN (SELECT movieid
                 AND actor.id = casting.actorid);
 ```
 
-## [8 Using Null](https://sqlzoo.net/wiki/Using_Null)
-<img src="school_table.png" height = 300>
+## [8 Using NULL](https://sqlzoo.net/wiki/Using_Null)
+<img src="school_table.png" height = 400>
 
 1. List the teachers who have NULL for their department.
 ```sql
@@ -743,7 +743,7 @@ FROM teacher;
 ```
 
 ## [9 Window function](https://sqlzoo.net/wiki/Window_functions)
-<img src="general_elections_table.png" height = 200>
+<img src="general_elections_table.png" height = 300>
 
 1. Show the lastName, party and votes for the constituency "S14000024" in 2017.
 ```sql
@@ -770,8 +770,8 @@ FROM teacher;
 
 ```
 
-## [10 Self join](https://sqlzoo.net/wiki/Self_join)
-<img src="buses_table.png" height = 200>
+## [10 Self JOIN](https://sqlzoo.net/wiki/Self_join)
+<img src="buses_table.png" height = 250>
 
 1. How many stops are in the database?
 ```sql
