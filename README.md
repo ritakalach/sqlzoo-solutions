@@ -11,13 +11,8 @@ Solutions to [SQLZOO Tutorials](https://sqlzoo.net) posted May 2020.
 * [6 JOIN](#6-join)
 * [7 More JOIN operations](#7-more-join-operations)
 * [8 Using Null](#8-using-null)
-* [8+ Numeric Examples](#8-numeric-examples)
-* [9- Window function](#9--window-function)
-* [9+ COVID 19](#9-covid-19) 😷
-* [9 Self join](#9-self-join)
-* [10 Tutorial Quizzes](#10-tutorial-quizzes)
-* [11 Tutorial Student Records](#11-tutorial-student-records)
-* [12 Tutorial DDL](#12-tutorial-ddl)
+* [9 Window function](#9-window-function)
+* [10 Self join](#10-self-join)
 
 ## [0 SELECT basics](https://sqlzoo.net/wiki/SELECT_basics)
 <img src="world_table.png" height = 200>
@@ -683,7 +678,7 @@ AND movieid IN (SELECT movieid
 ```
 
 ## [8 Using Null](https://sqlzoo.net/wiki/Using_Null)
-<img src="school_table.png" width = 400>
+<img src="school_table.png" height = 300>
 
 1. List the teachers who have NULL for their department.
 ```sql
@@ -747,10 +742,74 @@ ELSE 'None' END
 FROM teacher;
 ```
 
-## [8+ Numeric Examples](https://sqlzoo.net/wiki/NSS_Tutorial)
-## [9- Window function](https://sqlzoo.net/wiki/Window_functions)
-## [9+ COVID 19](https://sqlzoo.net/wiki/Window_LAG)
-## [9 Self join](https://sqlzoo.net/wiki/Self_join)
-## [10 Tutorial Quizzes](https://sqlzoo.net/wiki/Tutorial_Quizzes)
-## [11 Tutorial Student Records](https://sqlzoo.net/wiki/DDL_Student_Records)
-## [12 Tutorial DDL](https://sqlzoo.net/wiki/DDL_General_Election)
+## [9 Window function](https://sqlzoo.net/wiki/Window_functions)
+<img src="general_elections_table.png" height = 200>
+
+1. Show the lastName, party and votes for the constituency "S14000024" in 2017.
+```sql
+
+```
+2. Show the party and RANK for constituency "S14000024" in 2017. List the output by party.
+```sql
+
+```
+3. Use PARTITION to show the ranking of each party in "S14000021" in each year. Include yr, party, votes and ranking.
+```sql
+
+```
+4. Use PARTITION BY constituency to show the ranking of each party in Edinburgh in 2017. Order your results so the winners are shown first, then ordered by constituency.
+```sql
+
+```
+5. Show the parties that won for each Edinburgh constituency in 2017.
+```sql
+
+```
+6. Show how many seats each party won in Scotland in 2017.
+```sql
+
+```
+
+## [10 Self join](https://sqlzoo.net/wiki/Self_join)
+<img src="buses_table.png" height = 200>
+
+1. How many stops are in the database?
+```sql
+
+```
+2. Find the id value for the stop "Craiglockhart".
+```sql
+
+```
+3. Give the id and the name for the stops on the "4" "LRT" service.
+```sql
+
+```
+4. The query shown gives the number of routes that visit either London Road (149) or Craiglockhart (53). Run the query and notice the two services that link these stops have a count of 2. Add a HAVING clause to restrict the output to these two routes.
+```sql
+
+```
+5. Execute the self join shown and observe that b.stop gives all the places you can get to from Craiglockhart, without changing routes. Change the query so that it shows the services from Craiglockhart to London Road.
+```sql
+
+```
+6. The query shown is similar to the previous one, however by joining two copies of the stops table we can refer to stops by name rather than by number. Change the query so that the services between Craiglockhart and London Road are shown.
+```sql
+
+```
+7. Give a list of all the services which connect stops 115 and 137 ("Haymarket" and "Leith").
+```sql
+
+```
+8. Give a list of the services which connect the stops "Craiglockhart" and "Tollcross".
+```sql
+
+```
+9. Give a distinct list of the stops which may be reached from "Craiglockhart" by taking one bus, including "Craiglockhart" itself, offered by the LRT company. Include the company and bus no. of the relevant services.
+```sql
+
+```
+10. Find the routes involving two buses that can go from Craiglockhart to Lochend. Show the bus no. and company for the first bus, the name of the stop for the transfer, and the bus no. and company for the second bus.
+```sql
+
+```
