@@ -20,7 +20,7 @@ Solutions to [SQLZOO Tutorials](https://sqlzoo.net) posted May 2020.
 * [12 Tutorial DDL](#12-tutorial-ddl)
 
 ## [0 SELECT basics](https://sqlzoo.net/wiki/SELECT_basics)
-<img src="world_table.png" width = 600>
+<img src="world_table.png" height = 200>
 
 1. Show the population of Germany.
 ```sql
@@ -218,7 +218,7 @@ AND name NOT LIKE '% %';
 ```
 
 ## [3 SELECT from Nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial)
-<img src="nobel_table.png" width = 600>
+<img src="nobel_table.png" height = 200>
 
 1. Display Nobel prizes for 1950.
 ```sql
@@ -457,7 +457,7 @@ HAVING SUM(population) >= 100000000;
 ```
 
 ## [6 JOIN](https://sqlzoo.net/wiki/The_JOIN_operation)
-<img src="football_table.png" width = 600>
+<img src="football_table.png" width = 400>
 
 1. Show the matchid and player name for all goals scored by Germany (teamid = "GER").
 ```sql
@@ -553,7 +553,7 @@ GROUP BY mdate, matchid, team1, team2;
 ```
 
 ## [7 More JOIN operations](https://sqlzoo.net/wiki/More_JOIN_operations)
-<img src="movie_table.png" height = 10>
+<img src="movie_table.png" height = 50>
 
 1. List the films where the yr is 1962. Show id and title.
 ```sql
