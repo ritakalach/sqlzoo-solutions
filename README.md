@@ -1,5 +1,5 @@
 # SQLZOO Solutions
-Solutions to [SQLZOO Tutorials](https://sqlzoo.net) posted May 2020.
+Solutions to [SQLZOO Tutorials](https://sqlzoo.net).
 
 ## Sections
 * [0 SELECT basics](#0-select-basics)
@@ -743,7 +743,7 @@ FROM teacher;
 ```
 
 ## [9 Window function](https://sqlzoo.net/wiki/Window_functions)
-<img src="general_elections_table.png" height = 300>
+<img src="general_elections_table.png" height = 400>
 
 1. Show the lastName, party and votes for the constituency "S14000024" in 2017.
 ```sql
