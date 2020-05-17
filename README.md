@@ -743,7 +743,7 @@ FROM teacher;
 ```
 
 ## [9 Window function](https://sqlzoo.net/wiki/Window_functions)
-<img src="general_elections_table.png" height = 400>
+<img src="general_elections_table.png" height = 340>
 
 1. Show the lastName, party and votes for the constituency "S14000024" in 2017.
 ```sql
