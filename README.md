@@ -15,7 +15,7 @@ Solutions to [SQLZOO Tutorials](https://sqlzoo.net).
 11. [Self JOIN](#11-self-join)
 
 ## 1. [SELECT basics](https://sqlzoo.net/wiki/SELECT_basics)
-<img src="world_table.png" height = 200>
+<img src="images/world_table.png" height = 200>
 
 1. Show the population of Germany.
 ```sql
