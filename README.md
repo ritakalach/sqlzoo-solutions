@@ -213,7 +213,7 @@ AND name NOT LIKE '% %';
 ```
 
 ## 4. [SELECT from nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial)
-<img src="nobel_table.png" height = 200>
+<img src="images/nobel_table.png" height = 200>
 
 1. Display Nobel prizes for 1950.
 ```sql
@@ -452,7 +452,7 @@ HAVING SUM(population) >= 100000000;
 ```
 
 ## 7. [JOIN](https://sqlzoo.net/wiki/The_JOIN_operation)
-<img src="football_table.png" width = 400>
+<img src="images/football_table.png" width = 400>
 
 1. Show the matchid and player name for all goals scored by Germany (teamid = "GER").
 ```sql
@@ -548,7 +548,7 @@ GROUP BY mdate, matchid, team1, team2;
 ```
 
 ## 8. [More JOIN](https://sqlzoo.net/wiki/More_JOIN_operations)
-<img src="movie_table.png" height = 50>
+<img src="images/movie_table.png" height = 50>
 
 1. List the films where the yr is 1962. Show id and title.
 ```sql
@@ -678,7 +678,7 @@ AND movieid IN (SELECT movieid
 ```
 
 ## 9. [Using NULL](https://sqlzoo.net/wiki/Using_Null)
-<img src="school_table.png" height = 400>
+<img src="images/school_table.png" height = 400>
 
 1. List the teachers who have NULL for their department.
 ```sql
@@ -743,7 +743,7 @@ FROM teacher;
 ```
 
 ## 10. [Window function](https://sqlzoo.net/wiki/Window_functions)
-<img src="general_elections_table.png" height = 340>
+<img src="images/general_elections_table.png" height = 340>
 
 1. Show the lastName, party and votes for the constituency "S14000024" in 2017.
 ```sql
@@ -794,7 +794,7 @@ GROUP BY party;
 ```
 
 ## 11. [Self JOIN](https://sqlzoo.net/wiki/Self_join)
-<img src="buses_table.png" height = 250>
+<img src="images/buses_table.png" height = 250>
 
 1. How many stops are in the database?
 ```sql
