@@ -2,17 +2,17 @@
 Solutions to [SQLZOO Tutorials](https://sqlzoo.net).
 
 ## Sections
-1. [SELECT basics](#select-basics)
-2. [SELECT name](#select-name)
-3. [SELECT from world](#select-from-world)
-4. [SELECT from nobel](#select-from-nobel)
-5. [SELECT within SELECT](#select-within-select)
-6. [SUM and COUNT](#sum-and-count)
-7. [JOIN](#6-join)
-8. [More JOIN](#more-join)
-9. [Using NULL](#using-null)
-10. [Window function](#window-function)
-11. [Self JOIN](#self-join)
+1. [SELECT basics](#1-select-basics)
+2. [SELECT name](#2-select-name)
+3. [SELECT from world](#3-select-from-world)
+4. [SELECT from nobel](#4-select-from-nobel)
+5. [SELECT within SELECT](#5-select-within-select)
+6. [SUM and COUNT](#6-sum-and-count)
+7. [JOIN](#7-join)
+8. [More JOIN](#8-more-join)
+9. [Using NULL](#9-using-null)
+10. [Window function](#10-window-function)
+11. [Self JOIN](#11-self-join)
 
 ## 1. [SELECT basics](https://sqlzoo.net/wiki/SELECT_basics)
 <img src="world_table.png" height = 200>
