@@ -2,19 +2,19 @@
 Solutions to [SQLZOO Tutorials](https://sqlzoo.net).
 
 ## Sections
-* [0 SELECT basics](#0-select-basics)
-* [1 SELECT name](#1-select-name)
-* [2 SELECT from world](#2-select-from-world)
-* [3 SELECT from nobel](#3-select-from-nobel)
-* [4 SELECT within SELECT](#4-select-within-select)
-* [5 SUM and COUNT](#5-sum-and-count)
-* [6 JOIN](#6-join)
-* [7 More JOIN](#7-more-join)
-* [8 Using NULL](#8-using-null)
-* [9 Window function](#9-window-function)
-* [10 Self JOIN](#10-self-join)
+1. [SELECT basics](#select-basics)
+2. [SELECT name](#select-name)
+3. [SELECT from world](#select-from-world)
+4. [SELECT from nobel](#select-from-nobel)
+5. [SELECT within SELECT](#select-within-select)
+6. [SUM and COUNT](#sum-and-count)
+7. [JOIN](#6-join)
+8. [More JOIN](#more-join)
+9. [Using NULL](#using-null)
+10. [Window function](#window-function)
+11. [Self JOIN](#self-join)
 
-## [0 SELECT basics](https://sqlzoo.net/wiki/SELECT_basics)
+## 1. [SELECT basics](https://sqlzoo.net/wiki/SELECT_basics)
 <img src="world_table.png" height = 200>
 
 1. Show the population of Germany.
@@ -35,7 +35,7 @@ SELECT name, area
 FROM world
 WHERE area BETWEEN 200000 AND 250000;
 ```
-## [1 SELECT name](https://sqlzoo.net/wiki/SELECT_names)
+## 2. [SELECT name](https://sqlzoo.net/wiki/SELECT_names)
 1. Find the country that start with "Y".
 ```sql
 SELECT name
@@ -126,7 +126,7 @@ SELECT name, REPLACE(capital, name, '')
 FROM world
 WHERE capital LIKE CONCAT(name,'_%');
 ```
-## [2 SELECT from world](https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial)
+## 3. [SELECT from world](https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial)
 1. Show the name, continent and population of all countries.
 ```sql
 SELECT name, continent, population 
@@ -212,7 +212,7 @@ AND name LIKE '%u%'
 AND name NOT LIKE '% %';
 ```
 
-## [3 SELECT from nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial)
+## 4. [SELECT from nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial)
 <img src="nobel_table.png" height = 200>
 
 1. Display Nobel prizes for 1950.
@@ -310,7 +310,7 @@ CASE WHEN subject IN ('Physics', 'Chemistry') THEN 1 ELSE 0 END,
 subject, winner;
 ```
 
-## [4 SELECT within SELECT](https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial)
+## 5. [SELECT within SELECT](https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial)
 1. List each country name where the population is larger than that of Russia.
 ```sql
 SELECT name 
@@ -401,7 +401,7 @@ WHERE population > ALL(SELECT population*3
                        AND y.name <> x.name);
 ```
 
-## [5 SUM and COUNT](https://sqlzoo.net/wiki/SUM_and_COUNT)
+## 6. [SUM and COUNT](https://sqlzoo.net/wiki/SUM_and_COUNT)
 1. Show the total population of the world.
 ```sql
 SELECT SUM(population)
@@ -451,7 +451,7 @@ GROUP BY continent
 HAVING SUM(population) >= 100000000;
 ```
 
-## [6 JOIN](https://sqlzoo.net/wiki/The_JOIN_operation)
+## 7. [JOIN](https://sqlzoo.net/wiki/The_JOIN_operation)
 <img src="football_table.png" width = 400>
 
 1. Show the matchid and player name for all goals scored by Germany (teamid = "GER").
@@ -547,7 +547,7 @@ LEFT JOIN goal ON game.id = goal.matchid
 GROUP BY mdate, matchid, team1, team2;
 ```
 
-## [7 More JOIN](https://sqlzoo.net/wiki/More_JOIN_operations)
+## 8. [More JOIN](https://sqlzoo.net/wiki/More_JOIN_operations)
 <img src="movie_table.png" height = 50>
 
 1. List the films where the yr is 1962. Show id and title.
@@ -677,7 +677,7 @@ AND movieid IN (SELECT movieid
                 AND actor.id = casting.actorid);
 ```
 
-## [8 Using NULL](https://sqlzoo.net/wiki/Using_Null)
+## 9. [Using NULL](https://sqlzoo.net/wiki/Using_Null)
 <img src="school_table.png" height = 400>
 
 1. List the teachers who have NULL for their department.
@@ -742,74 +742,126 @@ ELSE 'None' END
 FROM teacher;
 ```
 
-## [9 Window function](https://sqlzoo.net/wiki/Window_functions)
+## 10. [Window function](https://sqlzoo.net/wiki/Window_functions)
 <img src="general_elections_table.png" height = 340>
 
 1. Show the lastName, party and votes for the constituency "S14000024" in 2017.
 ```sql
-
+SELECT lastName, party, votes
+FROM ge
+WHERE constituency = 'S14000024'
+AND yr = '2017'
+ORDER BY votes DESC;
 ```
-2. Show the party and RANK for constituency "S14000024" in 2017. List the output by party.
+2. Show the party, votes and RANK for constituency "S14000024" in 2017. List the output by party.
 ```sql
-
+SELECT party, votes, RANK() OVER(ORDER BY votes DESC)
+FROM ge
+WHERE constituency = 'S14000024'
+AND yr = '2017'
+ORDER BY party;
 ```
 3. Use PARTITION to show the ranking of each party in "S14000021" in each year. Include yr, party, votes and ranking.
 ```sql
-
+SELECT yr, party, votes, RANK() OVER(PARTITION BY yr ORDER BY votes DESC)
+FROM ge
+WHERE constituency = 'S14000021'
+ORDER BY party, yr, votes;
 ```
 4. Use PARTITION BY constituency to show the ranking of each party in Edinburgh in 2017. Order your results so the winners are shown first, then ordered by constituency.
 ```sql
-
+SELECT constituency, party, votes, RANK() OVER(PARTITION BY constituency ORDER BY votes DESC)
+FROM ge
+WHERE yr = '2017'
+AND constituency BETWEEN 'S14000021' AND 'S14000026'
+ORDER BY 4, 1;
 ```
 5. Show the parties that won for each Edinburgh constituency in 2017.
 ```sql
-
+SELECT constituency, party
+FROM (SELECT constituency, party, 
+      RANK() OVER(PARTITION BY constituency ORDER BY votes DESC) AS rank 
+      FROM ge WHERE yr = '2017' 
+      AND constituency BETWEEN 'S14000021' AND 'S14000026') AS ge_rank
+WHERE rank = '1';
 ```
-6. Show how many seats each party won in Scotland in 2017.
+6. Show how many seats each party won in Scotland in 2017. (Scottish constituencies start with "S".)
 ```sql
-
+SELECT party, COUNT(*)
+FROM (SELECT party, RANK() OVER(PARTITION BY constituency ORDER BY votes DESC) AS rank FROM ge WHERE yr = '2017' AND constituency LIKE 'S%') AS ge_rank
+WHERE rank = '1'
+GROUP BY party;
 ```
 
-## [10 Self JOIN](https://sqlzoo.net/wiki/Self_join)
+## 11. [Self JOIN](https://sqlzoo.net/wiki/Self_join)
 <img src="buses_table.png" height = 250>
 
 1. How many stops are in the database?
 ```sql
-
+SELECT COUNT(*) 
+FROM stops;
 ```
 2. Find the id value for the stop "Craiglockhart".
 ```sql
-
+SELECT id 
+FROM stops 
+WHERE name = 'Craiglockhart';
 ```
 3. Give the id and the name for the stops on the "4" "LRT" service.
 ```sql
-
+SELECT id, name 
+FROM stops, route
+WHERE stops.id = route.stop
+AND num = '4'
+AND company = 'LRT';
 ```
 4. The query shown gives the number of routes that visit either London Road (149) or Craiglockhart (53). Run the query and notice the two services that link these stops have a count of 2. Add a HAVING clause to restrict the output to these two routes.
 ```sql
-
+SELECT company, num, COUNT(*)
+FROM route 
+WHERE stop = 149 OR stop = 53
+GROUP BY company, num
+HAVING COUNT(*) = 2
 ```
 5. Execute the self join shown and observe that b.stop gives all the places you can get to from Craiglockhart, without changing routes. Change the query so that it shows the services from Craiglockhart to London Road.
 ```sql
-
+SELECT a.company, a.num, a.stop, b.stop
+FROM route a 
+JOIN route b ON (a.company = b.company AND a.num = b.num)
+WHERE a.stop = 53 AND b.stop = 149;
 ```
 6. The query shown is similar to the previous one, however by joining two copies of the stops table we can refer to stops by name rather than by number. Change the query so that the services between Craiglockhart and London Road are shown.
 ```sql
-
+SELECT a.company, a.num, stopa.name, stopb.name
+FROM route a 
+JOIN route b ON (a.company = b.company AND a.num = b.num)
+JOIN stops stopa ON (a.stop = stopa.id)
+JOIN stops stopb ON (b.stop = stopb.id)
+WHERE stopa.name = 'Craiglockhart'
+AND stopb.name = 'London Road';
 ```
 7. Give a list of all the services which connect stops 115 and 137 ("Haymarket" and "Leith").
 ```sql
-
+SELECT DISTINCT R1.company, R1.num
+FROM route R1, route R2
+WHERE R1.num = R2.num AND R1.company = R2.company
+AND R1.stop = 115 AND R2.stop = 137;
 ```
 8. Give a list of the services which connect the stops "Craiglockhart" and "Tollcross".
 ```sql
-
+SELECT R1.company, R1.num
+FROM route R1, route R2, stops S1, stops S2
+WHERE R1.num = R2.num AND R1.company = R2.company
+AND R1.stop = S1.id AND R2.stop = S2.id
+AND S1.name = 'Craiglockhart'
+AND S2.name = 'Tollcross';
 ```
 9. Give a distinct list of the stops which may be reached from "Craiglockhart" by taking one bus, including "Craiglockhart" itself, offered by the LRT company. Include the company and bus no. of the relevant services.
 ```sql
-
-```
-10. Find the routes involving two buses that can go from Craiglockhart to Lochend. Show the bus no. and company for the first bus, the name of the stop for the transfer, and the bus no. and company for the second bus.
-```sql
-
+SELECT DISTINCT S2.name, R2.company, R2.num
+FROM stops S1, stops S2, route R1, route R2
+WHERE S1.name = 'Craiglockhart'
+AND S1.id = R1.stop
+AND R1.company = R2.company AND R1.num = R2.num
+AND R2.stop = S2.id;
 ```
