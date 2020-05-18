@@ -788,7 +788,10 @@ WHERE rank = '1';
 6. Show how many seats each party won in Scotland in 2017. (Scottish constituencies start with "S".)
 ```sql
 SELECT party, COUNT(*)
-FROM (SELECT party, RANK() OVER(PARTITION BY constituency ORDER BY votes DESC) AS rank FROM ge WHERE yr = '2017' AND constituency LIKE 'S%') AS ge_rank
+FROM (SELECT party, RANK() OVER(PARTITION BY constituency ORDER BY votes DESC) AS rank 
+      FROM ge 
+      WHERE yr = '2017' 
+      AND constituency LIKE 'S%') AS ge_rank
 WHERE rank = '1'
 GROUP BY party;
 ```
