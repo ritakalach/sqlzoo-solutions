@@ -874,3 +874,19 @@ WHERE S1.name = 'Craiglockhart'
   AND R1.num = R2.num
   AND R2.stop = S2.id;
 ```
+10. Find the routes involving two buses that can go from Craiglockhart to Lochend.
+Show the bus no. and company for the first bus, the name of the stop for the transfer,
+and the bus no. and company for the second bus.
+```sql
+SELECT R1.num, R1.company, S2.name, R4.num, R4.company
+FROM route R1 
+JOIN route R2 ON (R1.company = R2.company AND R1.num = R2.num)
+JOIN route R3 ON (R2.stop = R3.stop)
+JOIN route R4 ON (R3.company = R4.company AND R3.num = R4.num)
+JOIN stops S1 ON R1.stop = S1.id
+JOIN stops S2 ON R2.stop = S2.id
+JOIN stops S3 ON R3.stop = S3.id
+JOIN stops S4 ON R4.stop = S4.id
+WHERE S1.name = 'Craiglockhart' AND S4.name = 'Lochend'
+ORDER BY R1.num, S2.name, R4.num 
+```
